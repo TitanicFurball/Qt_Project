@@ -12,7 +12,7 @@ class Example(QWidget):
 
         self.initUI()
 
-
+        
     def initUI(self):
 
         self.col = QColor(0, 0, 0)
@@ -35,7 +35,7 @@ class Example(QWidget):
         redb = QLabel('R', self)
         redb.resize(20, 20)
         redb.move(10, 40)
-
+        
         greenb = QLabel('G', self)
         greenb.resize(20, 20)
         greenb.move(10, 80)
