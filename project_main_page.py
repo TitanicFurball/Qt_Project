@@ -12,7 +12,7 @@ class Ui_MainWindow(object):
         self.Time.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.Time.setLineWidth(1)
         self.Time.setMidLineWidth(0)
-        self.Time.setSmallDecimalPoint(False)
+        #self.Time.setSmallDecimalPoint(False)
         self.Time.setDigitCount(8)
         self.Time.setObjectName("lcdNumber")
         self.label = QtWidgets.QLabel(self.centralwidget)
