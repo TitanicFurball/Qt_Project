@@ -16,7 +16,7 @@ class Main_Page(QMainWindow, Ui_MainWindow, QWidget):
         
     def showTime(self):
         try:
-            '''time1 = QTime(0, 0, 2)
+            time1 = QTime(0, 0, 2)
             text = ''
             while text!='00:00:00':
                 text = time1.toString('hh:mm:ss')
@@ -24,9 +24,9 @@ class Main_Page(QMainWindow, Ui_MainWindow, QWidget):
                     text = text[:2] + ' ' + text[3:5] + ' ' + text[6:]
                 print(text)
                 self.Time.display(text)
-                time1.addSecs(-1)
-                time.sleep(1)'''
-            time1 = '00:02'
+                time1 = time1.addSecs(-1)
+                time.sleep(1)
+            '''time1 = '00:02'
             if len(time1) == 2:
                 time1 = '00:00:' + time1
             elif len(time1) == 5:
@@ -57,7 +57,7 @@ class Main_Page(QMainWindow, Ui_MainWindow, QWidget):
                 if int(sec) % 2 == 1:
                     time1 = time1.replace(':', ' ')
                 print(time1)
-                self.Time.display(time1)
+                self.Time.display(time1)'''
                 
         except Exception as e:
             print(e)
