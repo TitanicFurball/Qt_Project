@@ -75,4 +75,3 @@ class Ui_MainWindow(object):
         self.label_2.setText(_translate("MainWindow", "Рингтон"))
         self.Pause.setText(_translate("MainWindow", "Пауза"))
         self.Stop.setText(_translate("MainWindow", "Отмена"))
-
