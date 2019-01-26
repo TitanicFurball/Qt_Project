@@ -1,6 +1,6 @@
 import sys
-from PyQt5.QtWidgets import (QWidget, QSlider,
-    QLabel, QApplication, QFrame, QPushButton, QLineEdit)
+from PyQt5.QtWidgets import (QWidget, QSlider, QLabel,
+                             QApplication, QFrame, QPushButton, QLineEdit)
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QColor
 
@@ -11,7 +11,6 @@ class Example(QWidget):
         super().__init__()
 
         self.initUI()
-
 
     def initUI(self):
 
@@ -74,7 +73,7 @@ class Example(QWidget):
         self.square = QFrame(self)
         self.square.setGeometry(260, 180, 100, 100)
         self.square.setStyleSheet("QWidget { background-color: %s }" %
-            self.col.name())
+                                  self.col.name())
 
         self.lblSetCol = QLabel('Настройки цвета', self)
         self.lblSetCol.resize(90, 20)
@@ -108,23 +107,22 @@ class Example(QWidget):
         
         self.show()
 
-
     def changeValueR(self, value):
         self.col.setRed(value * 2.55)
         self.square.setStyleSheet("QFrame { background-color: %s }" %
-            self.col.name())
+                                  self.col.name())
         self.show()
 
     def changeValueG(self, value):
         self.col.setGreen(value * 2.55)
         self.square.setStyleSheet("QFrame { background-color: %s }" %
-            self.col.name())
+                                  self.col.name())
         self.show()
 
     def changeValueB(self, value):
         self.col.setBlue(value * 2.55)
         self.square.setStyleSheet("QFrame { background-color: %s }" %
-            self.col.name())
+                                  self.col.name())
         self.show()
 
     def OkButton(self):
@@ -191,7 +189,6 @@ class Example(QWidget):
             self.lblVerdict.setText(self.verdict)
             self.lblVerdict.show()
             
-
 
 if __name__ == '__main__':
 
