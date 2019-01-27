@@ -133,13 +133,6 @@ class Example(QWidget):
         self.checkSettings()
         return self.hours, self.minutes
 
-    def return_time_and_note(self):
-        if self.verdict == 'ok':
-            return self.hours, self.minutes, self.seconds, self.note
-        
-    def return_colour(self):
-        return self.col.name()
-
     def checkSettings(self):
         class SettingsError(Exception):
             pass
