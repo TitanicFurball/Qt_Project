@@ -41,7 +41,7 @@ class Example(QWidget):
         self.inpSeconds.resize(20, 20)
         self.inpSeconds.move(224, 80)
 
-        self.col = QColor(0, 0, 0)
+        self.col = QColor(250, 250, 250)
 
         sld1 = QSlider(Qt.Horizontal, self)
         sld1.setFocusPolicy(Qt.NoFocus)
@@ -108,19 +108,19 @@ class Example(QWidget):
         self.show()
 
     def changeValueR(self, value):
-        self.col.setRed(value * 2.55)
+        self.col.setRed(250 - value)
         self.square.setStyleSheet("QFrame { background-color: %s }" %
                                   self.col.name())
         self.show()
 
     def changeValueG(self, value):
-        self.col.setGreen(value * 2.55)
+        self.col.setGreen(250 - value)
         self.square.setStyleSheet("QFrame { background-color: %s }" %
                                   self.col.name())
         self.show()
 
     def changeValueB(self, value):
-        self.col.setBlue(value * 2.55)
+        self.col.setBlue(250 - value)
         self.square.setStyleSheet("QFrame { background-color: %s }" %
                                   self.col.name())
         self.show()
@@ -131,6 +131,14 @@ class Example(QWidget):
         self.seconds = self.inpSeconds.text()
         self.note = self.inpNote.text()
         self.checkSettings()
+        return self.hours, self.minutes
+
+    def return_time_and_note(self):
+        if self.verdict == 'ok':
+            return self.hours, self.minutes, self.seconds, self.note
+        
+    def return_colour(self):
+        return self.col.name()
 
     def checkSettings(self):
         class SettingsError(Exception):
@@ -177,7 +185,7 @@ class Example(QWidget):
             if len(self.note) > 40:
                 raise NoteError('Количество символов не должно превышать 40.')
 
-            self.verdict = str('Вердикт: ок' + '\n')
+            self.verdict += 'ок'
 
         except TimeError as e:
             self.verdict += 'Вернитесь в настройки времени.' + '\n' + str(e)
@@ -195,3 +203,4 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     ex = Example()
     sys.exit(app.exec_())
+    
