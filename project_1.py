@@ -10,6 +10,8 @@ class Main_Page(QMainWindow, Ui_MainWindow, QWidget):
         super().__init__()
         self.setupUi(self)
         self.setGeometry(300, 100, 800, 600)
+        self.hide()
+        
         self.Pause.clicked.connect(self.runTime)
  
     def runTime(self):
@@ -40,16 +42,27 @@ class First_Main_Page(QMainWindow, Ui_MainWindow2, QWidget):
         self.hours.setMaximum(23)
         self.mins.setMaximum(59)
         self.sec.setMaximum(59)
-        if not (self.hours.value == 0, self.mins.value == 0,
-            self.sec.value ==0):
-            print(True)
-            self.start.setEnabled(True)
+        self.hours.valueChanged.connect(self.ActivateStart)
+        self.mins.valueChanged.connect(self.ActivateStart)
+        self.sec.valueChanged.connect(self.ActivateStart)
             
-    def DoAction(self):
-        pass
+            
+    def ActivateStart(self):
+        hour, minu, s = self.hours.value(), self.mins.value(), self.sec.value()
+        if not (hour == 0 and minu == 0 and  s == 0): 
+            self.start.setDisabled(False)
+        else:
+            self.start.setEnabled(False)
     
+    def DoAction(self):
+        self.start.setEnabled(False)
+        self.hide()
+        word = True
+                
+
 app = QApplication(sys.argv)
 ex1 = First_Main_Page()
 ex = Main_Page()
 ex1.show()
+ex.show()
 sys.exit(app.exec_())
