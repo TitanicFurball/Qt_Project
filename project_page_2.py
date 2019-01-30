@@ -92,4 +92,3 @@ class Ui_MainWindow2(object):
         self.label_h.setText(_translate("MainWindow", "Ч"))
         self.label_m.setText(_translate("MainWindow", "МИН"))
         self.label_s.setText(_translate("MainWindow", "С"))
-
