@@ -452,7 +452,6 @@ class Settings(QWidget):
         color = text[0].replace('(', '').replace(')', '')
         self.note = text[1]
         col = [int(i) for i in color.split(', ')]
-        
         self.col = QColor(col[0], col[1], col[2], col[3])
         
         self.sld1 = QSlider(Qt.Horizontal, self)
