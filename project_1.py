@@ -6,7 +6,8 @@ from PyQt5.QtCore import QTime, QTimer, Qt, QRect, QMetaObject, QCoreApplication
 from pygame import mixer
 from PyQt5.QtGui import QColor, QFont
 
-#Окно Обратного Отсчёта - дизайн
+# Окно Обратного Отсчёта - дизайн
+
 
 class Ui_MainWindow(object):
     
@@ -86,7 +87,8 @@ class Ui_MainWindow(object):
         self.Pause.setText(_translate("MainWindow", "Пауза"))
         self.Stop.setText(_translate("MainWindow", "Отмена"))
         
-#Окно Установки Времени - дизайн
+# Окно Установки Времени - дизайн
+
 
 class Ui_MainWindow2(object):
     
@@ -189,7 +191,8 @@ class Ui_MainWindow2(object):
         self.label_m.setText(_translate("MainWindow", "МИН"))
         self.label_s.setText(_translate("MainWindow", "С"))
         
-#Окно Выбор Рингтона - дизайн
+# Окно Выбор Рингтона - дизайн
+
 
 class Ui_MainWindow3(object):
     def setupUi(self, MainWindow):
@@ -267,7 +270,8 @@ class Ui_MainWindow3(object):
         self.setButton.setText(_translate("MainWindow", "Установить"))
         self.CancelButton.setText(_translate("MainWindow", "Отменить"))
         
-#Окно Обратного Отсчёта - код
+# Окно Обратного Отсчёта - код
+
 
 class Main_Page(QMainWindow, Ui_MainWindow, QWidget):
     def __init__(self, h, m, s, window): 
@@ -281,7 +285,7 @@ class Main_Page(QMainWindow, Ui_MainWindow, QWidget):
         color = [int(i) for i in color.split(', ')]
         current_color = QColor(color[0], color[1], color[2], color[3])
         self.setStyleSheet("QMainWindow { background-color: %s }" % 
-                                  current_color.name())
+                           current_color.name())
         
         self.h = h
         self.m = m
@@ -349,7 +353,8 @@ class Main_Page(QMainWindow, Ui_MainWindow, QWidget):
     def open_mel_win(self):
         self.window.mel.show()
                    
-#Меню - Установка времени - код
+# Меню - Установка времени - код
+
 
 class First_Main_Page(QMainWindow, Ui_MainWindow2, QWidget):
 
@@ -373,8 +378,8 @@ class First_Main_Page(QMainWindow, Ui_MainWindow2, QWidget):
         
     def ActivateStart(self):
         self.h, self.m, self.s = (self.hours.value(), self.mins.value(), 
-                                        self.sec.value())
-        if not (self.h in [0, ''] and self.m in [0, ''] and  self.s in [0, '']): 
+                                  self.sec.value())
+        if not (self.h in [0, ''] and self.m in [0, ''] and self.s in [0, '']): 
             self.start.setDisabled(False)
         else:
             self.start.setEnabled(False)
@@ -392,7 +397,8 @@ class First_Main_Page(QMainWindow, Ui_MainWindow2, QWidget):
         self.sttngs = Settings()
         self.sttngs.show()
 
-#Окно Выбора Рингтона - код
+# Окно Выбора Рингтона - код
+
 
 class Melody_Page(QMainWindow, Ui_MainWindow3, QWidget):
     
@@ -437,6 +443,7 @@ class Melody_Page(QMainWindow, Ui_MainWindow3, QWidget):
 
 # Окно Дополнительных Настроек
 
+
 class Settings(QWidget):
     
     def __init__(self):
@@ -452,6 +459,7 @@ class Settings(QWidget):
         color = text[0].replace('(', '').replace(')', '')
         self.note = text[1]
         col = [int(i) for i in color.split(', ')]
+        
         self.col = QColor(col[0], col[1], col[2], col[3])
         
         self.sld1 = QSlider(Qt.Horizontal, self)
@@ -551,7 +559,6 @@ class Settings(QWidget):
         
         class SettingsError(Exception):
             pass
-
 
         class NoteError(SettingsError):
             pass
